@@ -1,11 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RestaurantList from "./pages/RestaurantList";
+import MenuPage from "./pages/MenuPage";
+import OrderHistory from "./pages/OrderHistory";
+import Navbar from "./components/Navbar";
 
 function App() {
-  return <h1>Food Ordering App</h1>;
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<RestaurantList />} />
+        <Route path="/menu" element={<MenuPage />} />
+        <Route path="/orders" element={<OrderHistory />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
